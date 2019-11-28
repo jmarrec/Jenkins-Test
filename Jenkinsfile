@@ -4,7 +4,6 @@
 
 echo "CHANGE_ID=${env.CHANGE_ID}"
 echo "CHANGE_TARGET=${env.CHANGE_TARGET}"
-echo "env=${env}"
 
 echo "Calling test_code_reuse"
 
