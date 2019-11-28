@@ -14,6 +14,7 @@ docker run \
   -u root \
   -p 8080:8080 \
   -v "$(pwd)/jenkins-data":/var/jenkins_home \
+  -v "$(pwd)/git":/home/ubuntu/git \
   -v /var/run/docker.sock:/var/run/docker.sock \
   --name jenkins-test \
   jenkinsci/blueocean
