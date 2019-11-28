@@ -11,7 +11,7 @@ echo "CHANGE_TARGET=${env.CHANGE_TARGET}"
 
 if (env.CHANGE_ID) {
 
-  echo "Calling test_code_reuse"
+  echo "Calling test_code_reuse with 'Linux'"
 
-  test_code_reuse()
+  test_code_reuse('Linux')
 }
