@@ -1,3 +1,6 @@
 # Stores everything, perhaps I should check-in select .xml files
 jenkins-data/
 git/
+
+# Ignore the binaries I'm sending as build context to avoid downloading from internet
+*.deb
