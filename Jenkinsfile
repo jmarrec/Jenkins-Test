@@ -8,7 +8,26 @@
 
 echo "CHANGE_ID=${env.CHANGE_ID}"
 echo "CHANGE_TARGET=${env.CHANGE_TARGET}"
-echo "pullRequest.body=${pullRequest.body}"
+
+def pr_pattern = ~/Companion Pull Request: https:\/\/github\.com\/NREL\/OpenStudio\/pull\/(\d{4,})/
+def pr_matcher = pullRequest.body =~ pr_pattern
+String pr_number;
+if (pr_matcher.find()) {
+  pr_number = pr_matcher[0][1];
+} else {
+  pr_number = "PR_NOT_FOUND";
+}
+
+def branch_pattern = ~/Branch: (develop3?)/
+def branch_matcher = pullRequest.body =~ branch_pattern
+String os_branch;
+if (branch_matcher.find()) {
+  os_branch = branch_matcher[0][1];
+} else {
+  os_branch = "BRANCH_NOT_FOUND";
+}
+
+echo "pr_number=${pr_number}, os_branch=${os_branch}";
 
 if (env.CHANGE_ID) {
   openstudio_resources()
