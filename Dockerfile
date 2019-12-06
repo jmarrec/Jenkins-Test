@@ -8,7 +8,10 @@ WORKDIR /home/ubuntu
 ADD . .
 
 # This variable is being checked for in the ruby script
-ENV JENKINS_URL=http://localhost:8080
+ENV JENKINS_URL=http://localhost:8080 \
+    DEBIAN_FRONTEND=noninteractive
+# Might be worth messing with the locale settings to test for bad conversions (decimal separators etc)
+# LC_ALL=fr_FR.UTF8
 
 RUN apt update &&\
     apt install -y apt-utils wget git libgdbm-compat4 libgdbm5 python3-pip &&\
