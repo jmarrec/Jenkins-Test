@@ -8,6 +8,7 @@
 
 echo "CHANGE_ID=${env.CHANGE_ID}"
 echo "CHANGE_TARGET=${env.CHANGE_TARGET}"
+echo "pullRequest.body=${pullRequest.body}"
 
 if (env.CHANGE_ID) {
   openstudio_resources()
